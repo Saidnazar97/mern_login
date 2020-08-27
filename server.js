@@ -11,10 +11,10 @@ app.use(cors());
 app.use(
   bodyParser.urlencoded({
     extended: false
-  });
+  })
 );
 
-const mongoURI = `mongodb://localhost:27071/mernloginreg`;
+const mongoURI = `mongodb://localhost:27017/mernloginreg`;
 
 mongoose
   .connect(mongoURI, {
