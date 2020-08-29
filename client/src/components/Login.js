@@ -1,19 +1,20 @@
 import React, {
   Component
-} from `react`
+} from 'react'
 import {
   login
-} from `./UserFunctions`
+} from './UserFunctions'
 
 class Login extends Component {
   constructor() {
     super()
     this.state = {
-      email: ``,
-      password: ``,
-
+      email: '',
+      password: '',
+      errors: {}
     }
-    this.onChange = this.onChange.bimd(this)
+
+    this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
@@ -25,14 +26,14 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault()
 
-    const User = {
+    const user = {
       email: this.state.email,
       password: this.state.password
     }
 
     login(user).then(res => {
       if (res) {
-        this.props.history.push(. / profile)
+        this.props.history.push(`/profile`)
       }
     })
   }
@@ -92,3 +93,5 @@ class Login extends Component {
     )
   }
 }
+
+export default Login
